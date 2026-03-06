@@ -2,7 +2,7 @@
 #include<conio.h>
 int main(void){
     int i,temp,arr[5]={};
-    printf("Enter 5 numbers: ");
+    printf("Enter 5 numbers for sequencing: ");
     for(i=0;i<5;i++){
         scanf("%d",&arr[i]);
         printf("\033[A\033[17C\033[K");
