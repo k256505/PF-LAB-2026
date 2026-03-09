@@ -5,7 +5,7 @@ int main(void){
     printf("Enter 5 numbers for sequencing: ");
     for(i=0;i<5;i++){
         scanf("%d",&arr[i]);
-        printf("\033[A\033[17C\033[K");
+        printf("\033[A\033[32C\033[K");
     }
     for(i=4;i>0;i--){
         temp=arr[i];
