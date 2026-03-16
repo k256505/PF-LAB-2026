@@ -43,24 +43,33 @@ void adjoint(int *i, int *j, int *k,int c1_9[9]){
         }
         (*k == 9)?(*k=1,printf("\n")):(*k=2,printf("\n"));
     }
-    
 }
 // Inverse Function
 void inverse(int *i, int *j, int *k,int *detert,int c1_9[9]){
     printf("\nInverse of Matrix:\n");
-    *j=0;*k=0;
-    for(*i=0;*i<3;(*i)++){
-        for(;*j<3*(*i+1);(*j)++){
-            (c1_9[*k] > -1 && c1_9[*k] < 10)?(printf("  %d/%d ",c1_9[*k],*detert)):(printf(" %d/%d ",c1_9[*k],*detert));
-            (*k)+=3;
+    if(*detert != 0){
+        *j=0;*k=0;
+        for(*i=0;*i<3;(*i)++){
+            for(;*j<3*(*i+1);(*j)++){
+                (c1_9[*k] > -1 && c1_9[*k] < 10)?(printf("  %d/%d ",c1_9[*k],*detert)):(printf(" %d/%d ",c1_9[*k],*detert));
+                (*k)+=3;
+            }
+            (*k == 9)?(*k=1,printf("\n")):(*k=2,printf("\n"));
         }
-        (*k == 9)?(*k=1,printf("\n")):(*k=2,printf("\n"));
+    }else{
+        printf("Since its a singular matrix, the Inverse of the Matrix is 0\n");
     }
-    
 }
 int main(void){
     int c1,c2,c3,c4,c5,c6,c7,c8,c9,sign=-1,c1_9[9];
-    int i,j,k,detert,matrix[3][3]={{1,2,3},{0,4,5},{1,0,6}};
+    int i,j,k,detert,matrix[3][3];
+    for(i=0;i<3;i++){
+        printf("\n");
+        for(j=0;j<3;j++){
+            printf("Input element for Row %d and column %d of Matrix: ",i+1,j+1);
+            scanf("%d",&matrix[i][j]);
+        }
+    }
     transpose(&i,&j,matrix);
     determinant(&i,&j,&detert,matrix);
     cofactor(&i,&sign,c1_9,matrix);
